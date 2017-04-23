@@ -1,3 +1,3 @@
-      This WordPress plugin randomizes the user_id for users created after its setup.
+This WordPress plugin randomizes the user_id for users created after its setup.
 
-At the moment, it requires the patch from WP Issue #40545 https://core.trac.wordpress.org/ticket/4
+At the moment, it requires the patch from WP Issue https://core.trac.wordpress.org/ticket/4
