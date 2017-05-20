@@ -8,7 +8,7 @@ Author:      David Marín Carreño (DaveFX)
 Author URI:  https://davefx.com
 License:     GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: davefx
+Text Domain: dfx-random-user-id
 Domain Path: /languages
 */
 
@@ -57,6 +57,7 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 		// Check that user with ID=1 exists
 		$user = get_userdata( 1 );
 		if ( ! $user ) {
+
 			return;
 		}
 
@@ -80,8 +81,60 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 		// Hook to allow other plugins to update their tables
 		do_action( 'dfx_randomuserid_first_user_id_changed', 1, $new_id );
 
+		update_option('dfx_randomuserid_first_user_moved_to', $new_id, false );
+
+		delete_option( 'dfx_randomuserid_activation_notice_dismissed' );
+
 	}
 
 }
 
 register_activation_hook( __FILE__, 'dfx_random_user_randomize_first_user' );
+
+if ( ! function_exists( 'dfx_random_user_show_activation_msg') ) {
+	function dfx_random_user_show_activation_msg() {
+
+		if ( ! get_option( 'dfx_randomuserid_activation_notice_dismissed' ) ) {
+
+			$first_user_new_id = get_option( 'dfx_randomuserid_first_user_moved_to' );
+
+			$message = '<p>' . __( 'Random User IDs plugin has been successfully activated.', 'dfx-random-user-id' ) . '</p>';
+
+			if ( ! $first_user_new_id ) {
+				$message .= '<p>' . __( 'There was no user with ID=1 already, so no user ID has been randomized.', 'dfx-random-user-id' ) . '</p>';
+			} else {
+
+				$admin_user = get_userdata( $first_user_new_id );
+
+				$message .= sprintf( '<p>' . __( 'The ID for user `%s` has been moved from 1 to %d.', 'dfx-random-user-id' ) . '</p>', $admin_user->nickname, $first_user_new_id );
+
+				$message .= '<p>' . __( 'This plugin is designed to better being activated in first place, before any other plugin or theme', 'dfx-random-user-id' ) . '</p>';
+
+				$message .= '<p>' . sprintf( __( 'If there are any previously installed theme or plugin that added tables to the database, you should check if any field in these tables includes user_ids, and manually replace all the rows referencing user_id 1 with the new user_id %d', 'dfx-random-user-id' ), $first_user_new_id ) . '</p>';
+
+			}
+
+			?>
+			<div class="updated notice is-dismissible" data-notice="dfx_random_user_activation_msg">
+				<p><?= $message ?></p>
+				<p style="text-align: right;"><a href="?dfx_randomuserid_dismiss_notice"><?= __( 'Dismiss', 'dfx-random-user-id' ) ?></a></p>
+			</div>
+			<?php
+		}
+	}
+}
+
+add_action( 'admin_notices', 'dfx_random_user_show_activation_msg' );
+
+if ( ! function_exists( 'dfx_random_user_dismissed_activation_msg') ) {
+	function dfx_random_user_dismissed_activation_msg() {
+
+		if (isset($_GET['dfx_randomuserid_dismiss_notice'])) {
+
+			update_option( 'dfx_randomuserid_activation_notice_dismissed', 'true', true );
+
+		}
+	}
+}
+
+add_action( 'admin_init', 'dfx_random_user_dismissed_activation_msg' );
