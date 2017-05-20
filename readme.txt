@@ -1,5 +1,5 @@
 === Random User IDs ===
-Contributors: David Marín
+Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
 Requires at least: 3.1
