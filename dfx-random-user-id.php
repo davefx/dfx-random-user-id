@@ -134,7 +134,7 @@ if ( ! function_exists( 'dfx_random_user_dismissed_activation_msg') ) {
 			// Delete both the option to show the notice and the option keeping the new user id
 			// to avoid database clutter. The less information in the database, the better.
 
-			delete_option( 'dfx_randomuserid_activation_notice_dismissed' );
+			delete_option( 'dfx_randomuserid_activation_show_activation_notice' );
 			delete_option( 'dfx_randomuserid_first_user_moved_to' );
 
 		}
