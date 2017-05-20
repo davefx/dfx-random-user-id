@@ -31,5 +31,5 @@ if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
 }
 
-add_filter( 'wp_insert_user', 'dfx_random_user_id_user_register', 10, 2 );
+add_filter( 'wp_pre_insert_user_data', 'dfx_random_user_id_user_register', 10, 2 );
 
