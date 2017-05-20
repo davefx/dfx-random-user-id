@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Random User Ids
+Plugin Name: Random User IDs
 Plugin URI:  https://davefx.com/random-user-id
 Description: Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists.
 Version:     20170520
