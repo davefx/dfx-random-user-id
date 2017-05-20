@@ -54,6 +54,8 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 
 		global $wpdb;
 
+		update_option( 'dfx_randomuserid_activation_show_activation_notice', true, true );
+
 		// Check that user with ID=1 exists
 		$user = get_userdata( 1 );
 		if ( ! $user ) {
@@ -83,8 +85,6 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 
 		update_option('dfx_randomuserid_first_user_moved_to', $new_id, false );
 
-		delete_option( 'dfx_randomuserid_activation_notice_dismissed' );
-
 	}
 
 }
@@ -94,7 +94,7 @@ register_activation_hook( __FILE__, 'dfx_random_user_randomize_first_user' );
 if ( ! function_exists( 'dfx_random_user_show_activation_msg') ) {
 	function dfx_random_user_show_activation_msg() {
 
-		if ( ! get_option( 'dfx_randomuserid_activation_notice_dismissed' ) ) {
+		if ( get_option( 'dfx_randomuserid_activation_show_activation_notice' ) ) {
 
 			$first_user_new_id = get_option( 'dfx_randomuserid_first_user_moved_to' );
 
@@ -131,7 +131,11 @@ if ( ! function_exists( 'dfx_random_user_dismissed_activation_msg') ) {
 
 		if (isset($_GET['dfx_randomuserid_dismiss_notice'])) {
 
-			update_option( 'dfx_randomuserid_activation_notice_dismissed', 'true', true );
+			// Delete both the option to show the notice and the option keeping the new user id
+			// to avoid database clutter. The less information in the database, the better.
+
+			delete_option( 'dfx_randomuserid_activation_notice_dismissed' );
+			delete_option( 'dfx_randomuserid_first_user_moved_to' );
 
 		}
 	}
