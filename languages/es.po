@@ -1,0 +1,56 @@
+# Translation of Plugins - Random User IDs - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Random User IDs - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: +0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Random User IDs - Stable (latest release)\n"
+
+#. Author URI of the plugin/theme
+msgid "https://davefx.com"
+msgstr "https://davefx.com"
+
+#. Author of the plugin/theme
+msgid "David Marín Carreño (DaveFX)"
+msgstr "David Marín Carreño (DaveFX)"
+
+#. Description of the plugin/theme
+msgid "Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists."
+msgstr "Establece IDs de usuario aleatorios para los usuarios que se creen. Aleatoriza el ID del usuario predeterminado, si existe."
+
+#. Plugin URI of the plugin/theme
+msgid "https://davefx.com/random-user-id"
+msgstr "https://davefx.com/random-user-id"
+
+#. Plugin Name of the plugin/theme
+msgid "Random User IDs"
+msgstr "IDs de usuario aleatorios"
+
+#: dfx-random-user-id.php:120
+msgid "Dismiss"
+msgstr "Descartar"
+
+#: dfx-random-user-id.php:113
+msgid "If there are any previously installed theme or plugin that added tables to the database, you should check if any field in these tables includes user_ids, and manually replace all the rows referencing user_id 1 with the new user_id %d"
+msgstr "Si hay algún tema o plugin instalado que añada tablas a la base de datos, deberías comprobar si algún campo de esas tablas incluye identificadores de usuario, y reemplazar manualmente todas las filas que hagan referencia al usuario con ID 1 con el nuevo ID de usuario %d"
+
+#: dfx-random-user-id.php:111
+msgid "This plugin is designed to better being activated in first place, before any other plugin or theme"
+msgstr "Este plugin está diseñado para ser activado en primer lugar, antes que ningún otro plugin o tema."
+
+#: dfx-random-user-id.php:109
+msgid "The ID for user `%s` has been moved from 1 to %d."
+msgstr "El ID de usuario `%s`se ha movido desde 1 hasta %d."
+
+#: dfx-random-user-id.php:104
+msgid "There was no user with ID=1 already, so no user ID has been randomized."
+msgstr "No existía ningún usuario con ID=1, por lo que no se ha aleatorizado ningún ID de usuario."
+
+#: dfx-random-user-id.php:101
+msgid "Random User IDs plugin has been successfully activated."
+msgstr "El plugin «IDs de usuario aleatorios» ha sido activado con éxito."

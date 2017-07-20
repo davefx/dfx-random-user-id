@@ -3,16 +3,20 @@
 Plugin Name: Random User IDs
 Plugin URI:  https://davefx.com/random-user-id
 Description: Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists.
-Version:     20170521
+Version:     20170526
 Author:      David Marín Carreño (DaveFX)
 Author URI:  https://davefx.com
 License:     GPL3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: dfx-random-user-id
+Text Domain: random-user-ids
 Domain Path: /languages
 */
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+
+// Javascript MAX_SAFE_INTEGER = 9007199254740991
+// so we define the maximum ID to be one bit shorter
+define('DFX_RANDOM_USER_MAX_ID', ( ( 9007199254740991 + 1 ) / 2 ) - 1 );
 
 if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
@@ -30,7 +34,7 @@ if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
 			// Locate a yet-unused user_id
 			do {
-				$ID = random_int( 1, PHP_INT_MAX );
+				$ID = random_int( 1, DFX_RANDOM_USER_MAX_ID );
 			} while ( get_userdata( $ID ) );
 
 			$data += compact( 'ID' );
@@ -65,7 +69,7 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 
 		// Locate a yet-unused user_id
 		do {
-			$new_id = random_int( 1, PHP_INT_MAX );
+			$new_id = random_int( 1, DFX_RANDOM_USER_MAX_ID );
 		} while ( get_userdata( $new_id ) );
 
 
@@ -98,26 +102,26 @@ if ( ! function_exists( 'dfx_random_user_show_activation_msg') ) {
 
 			$first_user_new_id = get_option( 'dfx_randomuserid_first_user_moved_to' );
 
-			$message = '<p>' . __( 'Random User IDs plugin has been successfully activated.', 'dfx-random-user-id' ) . '</p>';
+			$message = '<p>' . __( 'Random User IDs plugin has been successfully activated.', 'random-user-ids' ) . '</p>';
 
 			if ( ! $first_user_new_id ) {
-				$message .= '<p>' . __( 'There was no user with ID=1 already, so no user ID has been randomized.', 'dfx-random-user-id' ) . '</p>';
+				$message .= '<p>' . __( 'There was no user with ID=1 already, so no user ID has been randomized.', 'random-user-ids' ) . '</p>';
 			} else {
 
 				$admin_user = get_userdata( $first_user_new_id );
 
-				$message .= sprintf( '<p>' . __( 'The ID for user `%s` has been moved from 1 to %d.', 'dfx-random-user-id' ) . '</p>', $admin_user->nickname, $first_user_new_id );
+				$message .= sprintf( '<p>' . __( 'The ID for user `%s` has been moved from 1 to %d.', 'random-user-ids' ) . '</p>', $admin_user->nickname, $first_user_new_id );
 
-				$message .= '<p>' . __( 'This plugin is designed to better being activated in first place, before any other plugin or theme', 'dfx-random-user-id' ) . '</p>';
+				$message .= '<p>' . __( 'This plugin is designed to better being activated in first place, before any other plugin or theme', 'random-user-ids' ) . '</p>';
 
-				$message .= '<p>' . sprintf( __( 'If there are any previously installed theme or plugin that added tables to the database, you should check if any field in these tables includes user_ids, and manually replace all the rows referencing user_id 1 with the new user_id %d', 'dfx-random-user-id' ), $first_user_new_id ) . '</p>';
+				$message .= '<p>' . sprintf( __( 'If there are any previously installed theme or plugin that added tables to the database, you should check if any field in these tables includes user_ids, and manually replace all the rows referencing user_id 1 with the new user_id %d', 'random-user-ids' ), $first_user_new_id ) . '</p>';
 
 			}
 
 			?>
 			<div class="updated notice is-dismissible" data-notice="dfx_random_user_activation_msg">
 				<p><?= $message ?></p>
-				<p style="text-align: right;"><a href="?dfx_randomuserid_dismiss_notice"><?= __( 'Dismiss', 'dfx-random-user-id' ) ?></a></p>
+				<p style="text-align: right;"><a href="?dfx_randomuserid_dismiss_notice"><?= __( 'Dismiss', 'random-user-ids' ) ?></a></p>
 			</div>
 			<?php
 		}
@@ -142,3 +146,10 @@ if ( ! function_exists( 'dfx_random_user_dismissed_activation_msg') ) {
 }
 
 add_action( 'admin_init', 'dfx_random_user_dismissed_activation_msg' );
+
+if ( ! function_exists( 'dfx_random_user_load_textdomain' ) ) {
+	function dfx_random_user_load_textdomain() {
+		load_plugin_textdomain( 'random-user-ids', false, dirname( plugin_basename(__FILE__) ) . '/languages/' );
+	}
+}
+add_action('plugins_loaded', 'dfx_random_user_load_textdomain');
