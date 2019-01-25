@@ -3,7 +3,7 @@
 Plugin Name: Random User IDs
 Plugin URI:  https://davefx.com/random-user-id
 Description: Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists.
-Version:     20170720
+Version:     20190125
 Author:      David Marín Carreño (DaveFX)
 Author URI:  https://davefx.com
 License:     GPL3
