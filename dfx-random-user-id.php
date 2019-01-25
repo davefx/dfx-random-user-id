@@ -14,9 +14,16 @@ Domain Path: /languages
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
-// Javascript MAX_SAFE_INTEGER = 9007199254740991
-// so we define the maximum ID to be one bit shorter
-define('DFX_RANDOM_USER_MAX_ID', ( ( 9007199254740991 + 1 ) / 2 ) - 1 );
+if ( ! function_exists( 'dfx_random_user_id_get_max_id' ) ) {
+
+	function dfx_random_user_id_get_max_id() {
+
+		// Javascript MAX_SAFE_INTEGER = 9007199254740991
+		// so we define the maximum ID to be one bit shorter
+
+		return apply_filters( 'dfx_random_user_id_max_id', ( ( 9007199254740991 + 1 ) / 2 ) - 1 );
+	}
+}
 
 if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
@@ -34,7 +41,7 @@ if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
 			// Locate a yet-unused user_id
 			do {
-				$ID = random_int( 1, DFX_RANDOM_USER_MAX_ID );
+				$ID = random_int( 1, dfx_random_user_id_get_max_id() );
 			} while ( get_userdata( $ID ) );
 
 			$data += compact( 'ID' );
@@ -69,7 +76,7 @@ if ( ! function_exists( 'dfx_random_user_randomize_first_user' ) ) {
 
 		// Locate a yet-unused user_id
 		do {
-			$new_id = random_int( 1, DFX_RANDOM_USER_MAX_ID );
+			$new_id = random_int( 1, dfx_random_user_id_get_max_id() );
 		} while ( get_userdata( $new_id ) );
 
 
