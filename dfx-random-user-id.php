@@ -3,7 +3,7 @@
 Plugin Name: Random User IDs
 Plugin URI:  https://davefx.com/random-user-id
 Description: Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists.
-Version:     20190125
+Version:     20201115
 Author:      David Marín Carreño (DaveFX)
 Author URI:  https://davefx.com
 License:     GPL3
@@ -25,6 +25,17 @@ if ( ! function_exists( 'dfx_random_user_id_get_max_id' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dfx_random_user_id_get_min_id' ) ) {
+
+    function dfx_random_user_id_get_min_id() {
+
+        // Javascript MAX_SAFE_INTEGER = 9007199254740991
+        // so we define the maximum ID to be one bit shorter
+
+        return apply_filters( 'dfx_random_user_id_min_id', 1 );
+    }
+}
+
 if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
 	/**
@@ -41,7 +52,7 @@ if ( ! function_exists( 'dfx_random_user_id_user_register' ) ) {
 
 			// Locate a yet-unused user_id
 			do {
-				$ID = random_int( 1, dfx_random_user_id_get_max_id() );
+				$ID = random_int( dfx_random_user_id_get_min_id(), dfx_random_user_id_get_max_id() );
 			} while ( get_userdata( $ID ) );
 
 			$data += compact( 'ID' );

@@ -3,8 +3,8 @@ Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
 Requires at least: 3.1
-Tested up to: 5.2.4
-Stable tag: 20190125
+Tested up to: 5.6.0
+Stable tag: 20201115
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,6 +14,10 @@ Since WordPress version 4.9, it also randomizes the ID for all other users creat
 In WordPress versions prior to 4.9, this feature requires installing the patch from WP Issue https://core.trac.wordpress.org/ticket/40545
 
 == Changelog ==
+
+= 20201115 =
+
+* Adding new filter dfx_random_user_id_min_id to customize the minimum allowed user ID number
 
 = 20190125 =
 
