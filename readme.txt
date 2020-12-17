@@ -15,8 +15,7 @@ In WordPress versions prior to 4.9, this feature requires installing the patch f
 
 == How it works ==
 
-Once activated, the plugin will immediately replace the ID for the default admin user (with user ID 1). By default, the plugin will use 
-random user IDs between 1 and 4503599627370495 (to ensure compatibility with Javascript code using the user ID).
+Once activated, the plugin will immediately replace the ID for the default admin user (with user ID 1). By default, the plugin will use random user IDs between 1 and 4503599627370495 (to ensure compatibility with Javascript code using the user ID).
 
 All newly created users from that moment will be generated with a random user ID in the defined range.
 
@@ -26,17 +25,16 @@ You can customize the range used by the plugin for the random generated user IDs
 
 For example, if you want to have all your user IDs between 1000 and 9999 you can add the following lines to your theme’s functions.php file:
 
-```
-function set_dfx_max_user_id( $default_max_id ) {
-    return 9999;
-}
-add_filter( 'dfx_random_user_id_max_id', 'set_dfx_max_user_id' );
+`function set_dfx_max_user_id( $default_max_id ) {`
+`    return 9999;`
+`}`
+`add_filter( 'dfx_random_user_id_max_id', 'set_dfx_max_user_id' );`
+` `
+`function set_dfx_min_user_id( $default_max_id ) {`
+`    return 1000;`
+`}`
+`add_filter( 'dfx_random_user_id_min_id', 'set_dfx_min_user_id' );`
 
-function set_dfx_min_user_id( $default_max_id ) {
-    return 1000;
-}
-add_filter( 'dfx_random_user_id_min_id', 'set_dfx_min_user_id' );
-```
 
 Probably, you’ll want to add these lines to your code before activating the plugin, so your new random main admin user ID is inside your desired range.
 
