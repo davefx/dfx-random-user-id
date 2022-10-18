@@ -3,7 +3,7 @@ Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
 Requires at least: 3.1
-Tested up to: 5.6.0
+Tested up to: 6.0.2
 Stable tag: 20201115
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
