@@ -4,7 +4,7 @@ Donate link: https://paypal.me/davefx
 Tags: security, user ids
 Requires at least: 3.1
 Tested up to: 6.4.2
-Stable tag: 20231215
+Stable tag: 20231215.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -40,7 +40,7 @@ Probably, you’ll want to add these lines to your code before activating the pl
 
 == Changelog ==
 
-= 20231215 =
+= 20231215.1 =
 
 * No actual changes. Just bumping to confirm it's still active
 
