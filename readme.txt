@@ -3,8 +3,8 @@ Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
 Requires at least: 3.1
-Tested up to: 6.0.2
-Stable tag: 20201115
+Tested up to: 6.4.2
+Stable tag: 20231215
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -39,6 +39,10 @@ For example, if you want to have all your user IDs between 1000 and 9999 you can
 Probably, you’ll want to add these lines to your code before activating the plugin, so your new random main admin user ID is inside your desired range.
 
 == Changelog ==
+
+= 20231215 =
+
+* No actual changes. Just bumping to confirm it's still active
 
 = 20201115 =
 
