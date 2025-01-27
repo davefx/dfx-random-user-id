@@ -7,7 +7,6 @@ Tested up to: 6.8.0
 Stable tag: 20201115.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-
 This WordPress plugin randomizes the user_id for the user created on WordPress setup, removing one potential attack factor from the site.
 
 == How it works ==
