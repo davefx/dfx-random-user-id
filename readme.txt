@@ -10,9 +10,6 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 This WordPress plugin randomizes the user_id for the user created on WordPress setup, removing one potential attack factor from the site.
 
-Since WordPress version 4.9, it also randomizes the ID for all other users created after its setup.
-In WordPress versions prior to 4.9, this feature requires installing the patch from WP Issue https://core.trac.wordpress.org/ticket/40545
-
 == How it works ==
 
 Once activated, the plugin will immediately replace the ID for the default admin user (with user ID 1). By default, the plugin will use random user IDs between 1 and 4503599627370495 (to ensure compatibility with Javascript code using the user ID).
