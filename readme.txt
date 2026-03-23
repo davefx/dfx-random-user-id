@@ -1,4 +1,4 @@
-=== Random User IDs ===
+=== DFX Random User IDs ===
 Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
