@@ -96,6 +96,9 @@ jobs:
           coverage: none
           tools: composer
 
+      - name: Install Subversion (needed to fetch the WP test library)
+        run: sudo apt-get update && sudo apt-get install -y subversion
+
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3
 
