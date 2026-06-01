@@ -9,3 +9,12 @@
 /.gitattributes
 /.distignore
 /logo.svg
+
+# Tests & dev tooling
+/tests
+/bin
+/vendor
+/composer.json
+/composer.lock
+/phpunit.xml.dist
+/phpcs.xml.dist

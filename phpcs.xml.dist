@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruleset name="DFX Random User IDs">
+	<description>Coding standards and PHP cross-version checks for the DFX Random User IDs plugin.</description>
+
+	<!-- What to scan. -->
+	<file>dfx-random-user-id.php</file>
+	<file>tests</file>
+
+	<!-- Show sniff codes and progress; only scan PHP. -->
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="sp"/>
+	<arg name="parallel" value="8"/>
+
+	<!-- PHP cross-version compatibility, down to the minimum supported version. -->
+	<config name="testVersion" value="7.4-"/>
+	<rule ref="PHPCompatibilityWP"/>
+
+	<!-- WordPress coding standards. -->
+	<config name="minimum_wp_version" value="6.7"/>
+	<rule ref="WordPress"/>
+
+	<!-- Recognise the plugin text domain for i18n sniffs. -->
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="random-user-ids"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- The test files use PHPUnit naming, not WP file/class naming. -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
+</ruleset>
