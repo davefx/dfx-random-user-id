@@ -3,7 +3,9 @@
 Plugin Name: DFX Random User IDs
 Plugin URI:  https://davefx.com/random-user-id
 Description: Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists.
-Version:     20201115.1
+Version:     20260601
+Requires at least: 4.9
+Requires PHP: 7.4
 Author:      David Marín Carreño (DaveFX)
 Author URI:  https://davefx.com
 License:     GPL3

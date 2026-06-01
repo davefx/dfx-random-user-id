@@ -2,9 +2,10 @@
 Contributors: DaveFX
 Donate link: https://paypal.me/davefx
 Tags: security, user ids
-Requires at least: 3.1
-Tested up to: 6.8.0
-Stable tag: 20201115.1
+Requires at least: 4.9
+Tested up to: 7.0
+Requires PHP: 7.4
+Stable tag: 20260601
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 This WordPress plugin randomizes the user_id for the user created on WordPress setup, removing one potential attack factor from the site.
@@ -35,6 +36,12 @@ For example, if you want to have all your user IDs between 1000 and 9999 you can
 Probably, you’ll want to add these lines to your code before activating the plugin, so your new random main admin user ID is inside your desired range.
 
 == Changelog ==
+
+= 20260601 =
+
+* Tested up to WordPress 7.0
+* Declared the minimum required PHP version (7.4)
+* Added an automated test suite and continuous integration against current WordPress and PHP versions
 
 = 20201115 =
 
