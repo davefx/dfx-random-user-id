@@ -1,0 +1,11 @@
+# Files and directories that should NOT be deployed to WordPress.org.
+# Used by 10up/action-wordpress-plugin-deploy.
+
+/.github
+/.wordpress-org
+/.idea
+/.git
+/.gitignore
+/.gitattributes
+/.distignore
+/logo.svg
