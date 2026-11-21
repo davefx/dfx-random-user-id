@@ -6,8 +6,14 @@
  * @package DFX_Random_User_IDs
  */
 
+/**
+ * Random IDs for new users.
+ */
 class Test_User_Register extends WP_UnitTestCase {
 
+	/**
+	 * Updates are left untouched.
+	 */
 	public function test_updates_are_left_untouched() {
 		$data   = array( 'user_login' => 'existing' );
 		$result = dfx_random_user_id_user_register( $data, true );
@@ -16,6 +22,9 @@ class Test_User_Register extends WP_UnitTestCase {
 		$this->assertSame( $data, $result );
 	}
 
+	/**
+	 * New user data gets ID within range.
+	 */
 	public function test_new_user_data_gets_id_within_range() {
 		add_filter( 'dfx_random_user_id_min_id', static fn() => 1000 );
 		add_filter( 'dfx_random_user_id_max_id', static fn() => 9999 );
@@ -27,6 +36,9 @@ class Test_User_Register extends WP_UnitTestCase {
 		$this->assertLessThanOrEqual( 9999, $result['ID'] );
 	}
 
+	/**
+	 * Real user creation lands in range.
+	 */
 	public function test_real_user_creation_lands_in_range() {
 		add_filter( 'dfx_random_user_id_min_id', static fn() => 500000 );
 		add_filter( 'dfx_random_user_id_max_id', static fn() => 600000 );
@@ -38,6 +50,9 @@ class Test_User_Register extends WP_UnitTestCase {
 		$this->assertInstanceOf( WP_User::class, get_userdata( $user_id ) );
 	}
 
+	/**
+	 * Collision with existing ID is avoided.
+	 */
 	public function test_collision_with_existing_id_is_avoided() {
 		// Create a user with a known, fixed ID by disabling our filter first.
 		remove_filter( 'wp_pre_insert_user_data', 'dfx_random_user_id_user_register', 10 );

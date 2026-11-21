@@ -1,0 +1,72 @@
+{
+	"schema": 1,
+	"strings": {
+		"es": {
+			"label": "Más plugins",
+			"intro": "Otros plugins del mismo autor que pueden resultarle útiles.",
+			"install": "Instalar",
+			"details": "Más información",
+			"active": "Activo",
+			"installed": "Instalado",
+			"empty": "Ahora mismo no hay otros plugins que mostrar."
+		}
+	},
+	"plugins": [
+		{
+			"id": "coupon-audit",
+			"name": "Coupon Audit and Analytics for WooCommerce",
+			"description": {
+				"en": "Audit your WooCommerce coupons and see each one's profit margin: which are still live, which overlap, and which are quietly losing money.",
+				"es": "Audita los cupones de WooCommerce y muestra el margen de cada uno: cuáles siguen vivos, cuáles se solapan y cuáles pierden dinero sin que nadie se entere."
+			},
+			"url": "https://wordpress.org/plugins/coupon-audit-and-analytics-for-woocommerce/",
+			"icon": "https://ps.w.org/coupon-audit-and-analytics-for-woocommerce/assets/icon.svg",
+			"wporg": "coupon-audit-and-analytics-for-woocommerce"
+		},
+		{
+			"id": "role-changer",
+			"name": "Membership & User Roles for WooCommerce",
+			"description": {
+				"en": "Sync user roles with memberships and subscriptions. Grant access on purchase, revoke on expiry, and restrict your store by role.",
+				"es": "Sincroniza los roles de usuario con membresías y suscripciones: da acceso al comprar, lo retira al caducar y restringe la tienda por rol."
+			},
+			"url": "https://wordpress.org/plugins/dfx-woo-role-changer/",
+			"icon": "https://ps.w.org/dfx-woo-role-changer/assets/icon.svg",
+			"wporg": "dfx-woo-role-changer"
+		},
+		{
+			"id": "leanroles",
+			"name": "LeanRoles – User Tags & Role Performance Audit",
+			"description": {
+				"en": "Audits what your user roles cost on every request, and adds user tags: label users without creating roles that grant nothing and weigh nothing.",
+				"es": "Mide lo que cuestan los roles de usuario en cada petición y añade etiquetas de usuario, para clasificar usuarios sin crear roles que no dan permisos ni pesan nada."
+			},
+			"url": "https://wordpress.org/plugins/leanroles/",
+			"icon": "https://ps.w.org/leanroles/assets/icon.svg",
+			"wporg": "leanroles"
+		},
+		{
+			"id": "telegram-feed",
+			"name": "DFX Feed for Telegram Channels",
+			"description": {
+				"en": "Display messages from Telegram channels on your WordPress site, with full media support, via shortcode, Gutenberg block, or Elementor widget.",
+				"es": "Muestra en la web los mensajes de canales de Telegram, con todos sus archivos multimedia, mediante shortcode, bloque de Gutenberg o widget de Elementor."
+			},
+			"url": "https://wordpress.org/plugins/dfx-feed-for-telegram-channels/",
+			"icon": "https://ps.w.org/dfx-feed-for-telegram-channels/assets/icon.svg",
+			"wporg": "dfx-feed-for-telegram-channels"
+		},
+		{
+			"id": "random-user-ids",
+			"name": "DFX Random User IDs",
+			"description": {
+				"en": "Randomizes the ID of the user created on WordPress setup, removing one potential attack factor from the site.",
+				"es": "Cambia por uno aleatorio el ID del usuario creado al instalar WordPress, y elimina así un posible punto de ataque."
+			},
+			"url": "https://wordpress.org/plugins/random-user-ids/",
+			"icon": "https://ps.w.org/random-user-ids/assets/icon-256x256.png",
+			"wporg": "random-user-ids",
+			"dirs": ["random-user-ids", "dfx-random-user-id"]
+		}
+	]
+}

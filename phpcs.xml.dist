@@ -4,6 +4,7 @@
 
 	<!-- What to scan. -->
 	<file>dfx-random-user-id.php</file>
+	<file>includes</file>
 	<file>tests</file>
 
 	<!-- Show sniff codes and progress; only scan PHP. -->
@@ -28,6 +29,17 @@
 			</property>
 		</properties>
 	</rule>
+
+	<!-- The tests fake requests, write to the database directly and print CLI messages. -->
+	<rule ref="WordPress.Security">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.DB.DirectDatabaseQuery">
+		<exclude-pattern>tests/*</exclude-pattern>
+	</rule>
+
+	<!-- The bundled library is checked in its own repository. -->
+	<exclude-pattern>libraries/*</exclude-pattern>
 
 	<!-- The test files use PHPUnit naming, not WP file/class naming. -->
 	<rule ref="WordPress.Files.FileName">

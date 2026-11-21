@@ -2,55 +2,255 @@
 # This file is distributed under the same license as the Plugins - Random User IDs - Stable (latest release) package.
 msgid ""
 msgstr ""
+"Project-Id-Version: Plugins - Random User IDs - Stable (latest release)\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/random-user-ids\n"
+"POT-Creation-Date: 2026-11-21T18:50:54+00:00\n"
 "PO-Revision-Date: +0000\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: GlotPress/2.4.0-alpha\n"
-"Language: es\n"
-"Project-Id-Version: Plugins - Random User IDs - Stable (latest release)\n"
 
-#. Author URI of the plugin/theme
-msgid "https://davefx.com"
-msgstr "https://davefx.com"
+#. Plugin Name of the plugin
+#: dfx-random-user-id.php
+msgid "DFX Random User IDs"
+msgstr "DFX IDs de usuario aleatorios"
 
-#. Author of the plugin/theme
-msgid "David Marín Carreño (DaveFX)"
-msgstr "David Marín Carreño (DaveFX)"
-
-#. Description of the plugin/theme
-msgid "Sets random user IDs for created users. Randomizes the user ID for the default user, if it exists."
-msgstr "Establece IDs de usuario aleatorios para los usuarios que se creen. Aleatoriza el ID del usuario predeterminado, si existe."
-
-#. Plugin URI of the plugin/theme
+#. Plugin URI of the plugin
+#: dfx-random-user-id.php
 msgid "https://davefx.com/random-user-id"
 msgstr "https://davefx.com/random-user-id"
 
-#. Plugin Name of the plugin/theme
-msgid "Random User IDs"
-msgstr "IDs de usuario aleatorios"
+#. Description of the plugin
+#: dfx-random-user-id.php
+msgid ""
+"Sets random user IDs for created users. Randomizes the user ID for the "
+"default user, if it exists."
+msgstr ""
+"Establece IDs de usuario aleatorios para los usuarios que se creen. "
+"Aleatoriza el ID del usuario predeterminado, si existe."
 
-#: dfx-random-user-id.php:120
+#. Author of the plugin
+#: dfx-random-user-id.php
+msgid "David Marín Carreño (DaveFX)"
+msgstr "David Marín Carreño (DaveFX)"
+
+#. Author URI of the plugin
+#: dfx-random-user-id.php
+msgid "https://davefx.com"
+msgstr "https://davefx.com"
+
+#: dfx-random-user-id.php:150
+msgid "Random User IDs plugin has been successfully activated."
+msgstr "El plugin «IDs de usuario aleatorios» ha sido activado con éxito."
+
+#: dfx-random-user-id.php:153
+msgid ""
+"There was no user with ID=1 already, so no user ID has been randomized."
+msgstr ""
+"No existía ningún usuario con ID=1, por lo que no se ha aleatorizado ningún "
+"ID de usuario."
+
+#. translators: 1: the user's nickname, 2: the user's new ID.
+#: dfx-random-user-id.php:156
+#, php-format
+msgid "The ID for user `%1$s` has been moved from 1 to %2$d."
+msgstr "El ID del usuario `%1$s` se ha movido de 1 a %2$d."
+
+#: dfx-random-user-id.php:157
+msgid ""
+"This plugin is designed to better being activated in first place, before any"
+" other plugin or theme"
+msgstr ""
+"Este plugin está diseñado para ser activado en primer lugar, antes que "
+"ningún otro plugin o tema."
+
+#. translators: %d: the user's new ID.
+#: dfx-random-user-id.php:159
+#, php-format
+msgid ""
+"If there are any previously installed theme or plugin that added tables to "
+"the database, you should check if any field in these tables includes "
+"user_ids, and manually replace all the rows referencing user_id 1 with the "
+"new user_id %d"
+msgstr ""
+"Si hay algún tema o plugin instalado que añada tablas a la base de datos, "
+"deberías comprobar si algún campo de esas tablas incluye identificadores de "
+"usuario, y reemplazar manualmente todas las filas que hagan referencia al "
+"usuario con ID 1 con el nuevo ID de usuario %d"
+
+#: dfx-random-user-id.php:170
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: dfx-random-user-id.php:113
-msgid "If there are any previously installed theme or plugin that added tables to the database, you should check if any field in these tables includes user_ids, and manually replace all the rows referencing user_id 1 with the new user_id %d"
-msgstr "Si hay algún tema o plugin instalado que añada tablas a la base de datos, deberías comprobar si algún campo de esas tablas incluye identificadores de usuario, y reemplazar manualmente todas las filas que hagan referencia al usuario con ID 1 con el nuevo ID de usuario %d"
+#: includes/settings.php:83 includes/settings.php:275
+msgid "Both limits must be whole numbers."
+msgstr "Los dos límites deben ser números enteros."
 
-#: dfx-random-user-id.php:111
-msgid "This plugin is designed to better being activated in first place, before any other plugin or theme"
-msgstr "Este plugin está diseñado para ser activado en primer lugar, antes que ningún otro plugin o tema."
+#. translators: %s: largest allowed ID.
+#: includes/settings.php:96 includes/settings.php:277
+#, php-format
+msgid "The limits must be between 1 and %s."
+msgstr "Los límites deben estar entre 1 y %s."
 
-#: dfx-random-user-id.php:109
-msgid "The ID for user `%s` has been moved from 1 to %d."
-msgstr "El ID de usuario `%s`se ha movido desde 1 hasta %d."
+#: includes/settings.php:100 includes/settings.php:278
+msgid "The minimum must be lower than the maximum."
+msgstr "El mínimo debe ser menor que el máximo."
 
-#: dfx-random-user-id.php:104
-msgid "There was no user with ID=1 already, so no user ID has been randomized."
-msgstr "No existía ningún usuario con ID=1, por lo que no se ha aleatorizado ningún ID de usuario."
+#. translators: %s: smallest number of IDs the range must hold.
+#: includes/settings.php:107
+#, php-format
+msgid ""
+"The range is too narrow for this site: it must hold at least %s IDs, ten for"
+" every user."
+msgstr ""
+"El rango es demasiado estrecho para este sitio: debe abarcar al menos %s "
+"IDs, diez por cada usuario."
 
-#: dfx-random-user-id.php:101
-msgid "Random User IDs plugin has been successfully activated."
-msgstr "El plugin «IDs de usuario aleatorios» ha sido activado con éxito."
+#: includes/settings.php:164 includes/settings.php:165
+#: includes/settings.php:245
+msgid "Random User IDs"
+msgstr "IDs de usuario aleatorios"
+
+#: includes/settings.php:185 includes/settings.php:247
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/settings.php:202
+msgid "Sorry, you are not allowed to change these settings."
+msgstr "Lo sentimos, no tiene permiso para cambiar estos ajustes."
+
+#: includes/settings.php:279
+msgid ""
+"The range is too narrow for this site: it must hold at least ten IDs for "
+"every user, and never fewer than 1,000."
+msgstr ""
+"El rango es demasiado estrecho para este sitio: debe abarcar al menos diez "
+"IDs por cada usuario, y nunca menos de 1.000."
+
+#: includes/settings.php:283
+msgid "The range was not changed."
+msgstr "El rango no se ha modificado."
+
+#: includes/settings.php:285
+msgid ""
+"Range saved. It applies to the users created from now on; existing IDs do "
+"not change."
+msgstr ""
+"Rango guardado. Se aplica a los usuarios que se creen a partir de ahora; los"
+" IDs existentes no cambian."
+
+#: includes/settings.php:287
+msgid "The default range has been restored."
+msgstr "Se ha restablecido el rango predeterminado."
+
+#: includes/settings.php:300
+msgid "Status"
+msgstr "Estado"
+
+#: includes/settings.php:303
+msgid "Users"
+msgstr "Usuarios"
+
+#: includes/settings.php:306
+msgid "User with ID 1"
+msgstr "Usuario con ID 1"
+
+#: includes/settings.php:307
+msgid "Exists"
+msgstr "Existe"
+
+#: includes/settings.php:307
+msgid "None"
+msgstr "No hay"
+
+#: includes/settings.php:308
+msgid ""
+"ID 1 is the first one an attacker tries. The plugin moves it when it is "
+"activated; it exists again only if it was created later or the move failed."
+msgstr ""
+"El ID 1 es el primero que prueba un atacante. El plugin lo cambia al "
+"activarse; solo vuelve a existir si se creó después o si el cambio falló."
+
+#: includes/settings.php:312
+msgid "Users with IDs below 1,000"
+msgstr "Usuarios con ID inferior a 1.000"
+
+#: includes/settings.php:314
+msgid ""
+"Low IDs are easy to guess. They usually belong to users created before the "
+"plugin was activated, and the plugin does not change them."
+msgstr ""
+"Los IDs bajos son fáciles de adivinar. Suelen ser de usuarios creados antes "
+"de activar el plugin, y el plugin no los cambia."
+
+#: includes/settings.php:318
+msgid "Users whose ID follows another user's"
+msgstr "Usuarios cuyo ID es el siguiente al de otro usuario"
+
+#: includes/settings.php:320
+msgid ""
+"Knowing one of these IDs gives away the next one. They usually come from "
+"before the plugin was activated, or from a very narrow range."
+msgstr ""
+"Conocer uno de estos IDs delata el siguiente. Suelen venir de antes de "
+"activar el plugin o de un rango muy estrecho."
+
+#: includes/settings.php:325
+msgid "First user"
+msgstr "Primer usuario"
+
+#. translators: %s: the new user ID.
+#: includes/settings.php:327
+#, php-format
+msgid "Moved from ID 1 to %s on activation"
+msgstr "Movido del ID 1 al %s al activar el plugin"
+
+#: includes/settings.php:367
+msgid "Range for new user IDs"
+msgstr "Rango de los IDs de los usuarios nuevos"
+
+#: includes/settings.php:368
+msgid ""
+"Every new user gets a random ID between these two numbers. Existing users "
+"keep their IDs. The wider the range, the harder the IDs are to guess."
+msgstr ""
+"Cada usuario nuevo recibe un ID aleatorio entre estos dos números. Los "
+"usuarios existentes conservan sus IDs. Cuanto más amplio sea el rango, más "
+"difícil será adivinarlos."
+
+#. translators: 1: minimum ID, 2: maximum ID.
+#: includes/settings.php:372
+#, php-format
+msgid ""
+"Code on this site changes the range with the dfx_random_user_id_min_id or "
+"dfx_random_user_id_max_id filters, so the range in use is %1$s to %2$s, "
+"whatever is saved here."
+msgstr ""
+"Hay código en este sitio que cambia el rango con los filtros "
+"dfx_random_user_id_min_id o dfx_random_user_id_max_id, así que el rango en "
+"uso es de %1$s a %2$s, se guarde aquí lo que se guarde."
+
+#: includes/settings.php:379
+msgid "Minimum ID"
+msgstr "ID mínimo"
+
+#: includes/settings.php:381
+msgid "Maximum ID"
+msgstr "ID máximo"
+
+#. translators: %s: largest allowed ID.
+#: includes/settings.php:384
+#, php-format
+msgid "At most %s, so that the IDs stay exact in JavaScript."
+msgstr "Como máximo %s, para que los IDs se mantengan exactos en JavaScript."
+
+#: includes/settings.php:387
+msgid "Save range"
+msgstr "Guardar rango"
+
+#: includes/settings.php:391
+msgid "Restore the default range"
+msgstr "Restablecer el rango predeterminado"
